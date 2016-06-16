@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+   
+   <head>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+   </head>
+   
+   <body ng-app = "myapp">
+   
+      <div ng-init = "countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+      </div>
+      
+      <div ng-controller = "HelloController" >
+         <h2>Welcome {{helloTo.title}} to the world of AngularJs!</h2>
+      </div>
+      
+      <p>List of Countries with locale:</p>
+   
+      <ol>
+        <li ng-repeat = "country in countries">
+            {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+         </li>
+      </ol>
+      
+      <script>
+         angular.module("myapp", [])
+         
+         .controller("HelloController", function($scope) {
+            $scope.helloTo = {};
+            $scope.helloTo.title = "Coeus";
+         });
+      </script>
+      
+   </body>
+</html>
